@@ -29,6 +29,9 @@ public class Usuario {
     @Column(name = "ds_email_usuario")
     private String emailUsuario;
 
+    @Column(name = "ds_senha")
+    private String senhaUsuario;
+
     // Registros automáticos de criação e atualização
     @CreationTimestamp
     @Column(name = "dt_criacao_usuario")
@@ -37,5 +40,20 @@ public class Usuario {
     @UpdateTimestamp
     @Column(name = "dt_atualizacao_usuario")
     private Instant atualizacao_entidade;
+
+    // Para soft delete
+    @Column(name = "fl_status")
+    private Boolean ativo;
+
+    // DTO -> Entity
+    public Usuario(RequestUsuario requestUsuario){
+        this.nomeUsuario = requestUsuario.nomeUsuario();
+        this.emailUsuario = requestUsuario.emailUsuario();
+        this.senhaUsuario = requestUsuario.senhaUsuario();
+
+        this.criacao_entidade = Instant.now();
+        this.atualizacao_entidade = null;
+        this.ativo = true;
+    }
 
 }

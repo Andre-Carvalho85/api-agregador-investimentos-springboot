@@ -41,8 +41,8 @@ public class UsuarioService {
     public UUID registrarUsuario(RequestUsuario requestUsuario){
         // DTO -> Entity
         Usuario novoUsuario = new Usuario(requestUsuario);
-            usuarioRepository.save(novoUsuario);
-            return novoUsuario.getIdUsuario();
+        Usuario usuarioSalvo = usuarioRepository.save(novoUsuario);
+        return usuarioSalvo.getIdUsuario();
     }
 
     public void atualizarUsuario(RequestUsuario requestUsuario, String idUsuario){

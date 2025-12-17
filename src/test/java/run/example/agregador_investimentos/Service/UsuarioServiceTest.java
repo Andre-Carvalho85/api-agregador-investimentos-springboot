@@ -14,6 +14,7 @@ import run.example.agregador_investimentos.Entities.Usuario;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
 
 import java.time.Instant;
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,6 +36,10 @@ class UsuarioServiceTest {
 
     @Captor
     private ArgumentCaptor<Usuario> argumentosRequisicaoUsuario;
+
+    @Captor
+    private ArgumentCaptor<UUID> argumentosRequisicaoRetornoEmUuid;
+
 
     // Uma classe por metodo, um metodo por teste
     @Nested
@@ -85,6 +90,42 @@ class UsuarioServiceTest {
             // Não testar apenas caminhos de sucesso, e sim todos os cenários, especialmente críticos
             assertThrows(RuntimeException.class, ()-> usuarioService.registrarUsuario(input));
 
+        }
+        @Test
+        @DisplayName("Quando bem sucedido com optional presente, deve retornar usuário pelo id")
+        void deveRetornarUsuarioPorIdComSucessoQuandoTemOptional(){
+            var usuario = new Usuario(
+                    UUID.randomUUID(),
+                    "usuario_teste",
+                    "email@teste.com",
+                    "senha_hash",
+                    Instant.now(),
+                    null,
+                    true
+            );
+
+            doReturn(Optional.of(usuario)).when(usuarioRepository).findById(argumentosRequisicaoRetornoEmUuid.capture());
+
+            var output = usuarioService.buscarUsuarioPeloId(usuario.getIdUsuario().toString());
+
+            assertTrue(output.isPresent());
+
+            // Garantia de que os dados do usuário informado são os mesmos do captor
+            assertEquals(usuario.getIdUsuario(), argumentosRequisicaoRetornoEmUuid.getValue());
+        }
+
+        @Test
+        @DisplayName("Quando bem sucedido com optional ausente, deve retornar usuário pelo id")
+        void deveRetornarUsuarioPorIdComSucessoQuandoNaoTemOptional(){
+            var idUsuario = UUID.randomUUID();
+
+            doReturn(Optional.empty()).when(usuarioRepository).findById(argumentosRequisicaoRetornoEmUuid.capture());
+
+            var output = usuarioService.buscarUsuarioPeloId(idUsuario.toString());
+
+            assertTrue(output.isEmpty());
+
+            assertEquals(idUsuario, argumentosRequisicaoRetornoEmUuid.getValue());
         }
     }
 

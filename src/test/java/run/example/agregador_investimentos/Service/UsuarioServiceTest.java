@@ -91,9 +91,13 @@ class UsuarioServiceTest {
             assertThrows(RuntimeException.class, ()-> usuarioService.registrarUsuario(input));
 
         }
+    }
+
+    @Nested
+    class buscarUsuarioPeloId {
         @Test
         @DisplayName("Quando bem sucedido com optional presente, deve retornar usuário pelo id")
-        void deveRetornarUsuarioPorIdComSucessoQuandoTemOptional(){
+        void deveRetornarUsuarioPorIdComSucessoQuandoTemOptional() {
             var usuario = new Usuario(
                     UUID.randomUUID(),
                     "usuario_teste",
@@ -116,7 +120,7 @@ class UsuarioServiceTest {
 
         @Test
         @DisplayName("Quando bem sucedido com optional ausente, deve retornar usuário pelo id")
-        void deveRetornarUsuarioPorIdComSucessoQuandoNaoTemOptional(){
+        void deveRetornarUsuarioPorIdComSucessoQuandoNaoTemOptional() {
             var idUsuario = UUID.randomUUID();
 
             doReturn(Optional.empty()).when(usuarioRepository).findById(argumentosRequisicaoRetornoEmUuid.capture());
@@ -129,4 +133,5 @@ class UsuarioServiceTest {
         }
     }
 
+    
 }

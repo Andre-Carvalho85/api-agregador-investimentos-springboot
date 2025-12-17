@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -31,6 +33,9 @@ class UsuarioServiceTest {
     @InjectMocks
     private UsuarioService usuarioService;
 
+    @Captor
+    private ArgumentCaptor<Usuario> argumentosRequisicaoUsuario;
+
     // Uma classe por metodo, um metodo por teste
     @Nested
     class registrarUsuario {
@@ -48,8 +53,8 @@ class UsuarioServiceTest {
                     true
             );
 
-            // Validacao do repositorio sempre que o metodo .save() é chamado
-            doReturn(usuario).when(usuarioRepository).save(any());
+            // Validacao do repositorio sempre que o metodo .save() é chamado para o molde do captor
+            doReturn(usuario).when(usuarioRepository).save(argumentosRequisicaoUsuario.capture());
 
             var input = new RequestUsuario("usuario",
                                             "email@email.com",
@@ -59,6 +64,13 @@ class UsuarioServiceTest {
 
             // Validação se a chamada do metodo .registrarUsuario com a DTO não tem retorno nulo
             assertNotNull(output);
+
+            // Validação se o metodo processou seguindo o padrao de campos do captor
+            var usuarioCapturado = argumentosRequisicaoUsuario.getValue();
+
+            assertEquals(input.nomeUsuario(), usuarioCapturado.getNomeUsuario());
+            assertEquals(input.emailUsuario(), usuarioCapturado.getEmailUsuario());
+            assertEquals(input.senhaUsuario(), usuarioCapturado.getSenhaUsuario());
         }
 
         @Test

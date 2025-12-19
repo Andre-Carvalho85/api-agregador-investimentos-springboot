@@ -47,7 +47,7 @@ class UsuarioServiceTest {
     class registrarUsuario {
         @Test
         @DisplayName("Deve criar um usuário com sucesso")
-        void deveCriarUsuarioComSucesso(){
+        void deveCriarUsuarioComSucesso() {
 
             var usuario = new Usuario(
                     UUID.randomUUID(),
@@ -63,8 +63,8 @@ class UsuarioServiceTest {
             doReturn(usuario).when(usuarioRepository).save(argumentosRequisicaoUsuario.capture());
 
             var input = new RequestUsuario("usuario",
-                                            "email@email.com",
-                                            "");
+                    "email@email.com",
+                    "");
 
             var output = usuarioService.registrarUsuario(input);
 
@@ -81,7 +81,7 @@ class UsuarioServiceTest {
 
         @Test
         @DisplayName("Deve retornar uma exceção quando um erro acontecer")
-        void deveRetornarExcecaoQuandoOcorreErro(){
+        void deveRetornarExcecaoQuandoOcorreErro() {
 
             doThrow(new RuntimeException()).when(usuarioRepository).save(any());
 
@@ -89,7 +89,7 @@ class UsuarioServiceTest {
                     "email@email.com",
                     "");
             // Não testar apenas caminhos de sucesso, e sim todos os cenários, especialmente críticos
-            assertThrows(RuntimeException.class, ()-> usuarioService.registrarUsuario(input));
+            assertThrows(RuntimeException.class, () -> usuarioService.registrarUsuario(input));
 
         }
     }
@@ -135,10 +135,10 @@ class UsuarioServiceTest {
     }
 
     @Nested
-    class listarUsuarios{
+    class listarUsuarios {
         @Test
         @DisplayName("Deve retornar todos os usuários com sucesso")
-        void deveRetornarTodosOsUsuariosComSucesso(){
+        void deveRetornarTodosOsUsuariosComSucesso() {
             var usuario = new Usuario(
                     UUID.randomUUID(),
                     "usuario_teste",
@@ -165,10 +165,10 @@ class UsuarioServiceTest {
     }
 
     @Nested
-    class deletarUsuario{
+    class deletarUsuario {
         @Test
         @DisplayName("Deve deletar usuario com sucesso quando o mesmo existe")
-        void deveDeletarUsuarioComSucesso(){
+        void deveDeletarUsuarioComSucesso() {
             var idUsuario = UUID.randomUUID();
             var usuario = new Usuario(
                     UUID.randomUUID(),
@@ -188,7 +188,7 @@ class UsuarioServiceTest {
 
             // Verifica se o metodo foi chamado
             verify(usuarioRepository).findById(idUsuario);
-            assertFalse(usuario.getActive() );
+            assertFalse(usuario.getActive());
         }
 
         @Test
@@ -208,7 +208,64 @@ class UsuarioServiceTest {
     }
 
     @Nested
-    class atualizarUsuario{
+    class atualizarUsuario {
+        @Test
+        @DisplayName("Deve atualizar usuario com sucesso se o usuário está presente, bem como seu nome e senha")
+        void deveAtualizarUsuarioExistenteQuandoNomeESenhaEstaoPreenchidos(){
+            var idUsuario = UUID.randomUUID();
+            var usuario = new Usuario(
+                    UUID.randomUUID(),
+                    "usuario_teste",
+                    "email@teste.com",
+                    "senha_hash",
+                    Instant.now(),
+                    null,
+                    true
+            );
+            var atualizacaoUsuarioDto = new RequestUsuario(
+                    "Usuario para teste",
+                    "testando@gmail.com",
+                    "senha-segura"
+            );
 
+            doReturn(Optional.of(usuario))
+                    .when(usuarioRepository).findById(idUsuario);
+
+            doReturn(usuario)
+                    .when(usuarioRepository).save(any(Usuario.class));
+
+            usuarioService.atualizarUsuario(atualizacaoUsuarioDto, idUsuario.toString());
+
+            verify(usuarioRepository, times(1)).findById(idUsuario);
+
+            verify(usuarioRepository, times(1)).save(argumentosRequisicaoUsuario.capture());
+
+            var usuarioCapturado = argumentosRequisicaoUsuario.getValue();
+
+            assertEquals(atualizacaoUsuarioDto.nomeUsuario(), usuarioCapturado.getNomeUsuario());
+            assertEquals(atualizacaoUsuarioDto.senhaUsuario(), usuarioCapturado.getSenhaUsuario());
+            assertEquals(atualizacaoUsuarioDto.emailUsuario(), usuarioCapturado.getEmailUsuario());
+        }
+
+        @Test
+        @DisplayName("Não deve atualizar se o usuário não existe")
+        void naoDeveAtualizarUsuarioSeNaoExiste(){
+            var idUsuario = UUID.randomUUID().toString();
+            var atualizacaoUsuarioDto = new RequestUsuario(
+                    "Nome Teste",
+                    "teste@gmail.com",
+                    "senha123"
+            );
+
+            doReturn(Optional.empty())
+                    .when(usuarioRepository).findById(UUID.fromString(idUsuario));
+
+            assertThrows(EntityNotFoundException.class, () -> {
+                usuarioService.atualizarUsuario(atualizacaoUsuarioDto, idUsuario);
+            });
+
+            verify(usuarioRepository, never()).save(any(Usuario.class));
+            verify(usuarioRepository, times(1)).findById(UUID.fromString(idUsuario));
+        }
     }
 }

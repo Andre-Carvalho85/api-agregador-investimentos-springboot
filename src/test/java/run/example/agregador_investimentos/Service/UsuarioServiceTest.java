@@ -1,5 +1,6 @@
 package run.example.agregador_investimentos.Service;
 
+import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class UsuarioServiceTest {
@@ -162,5 +162,53 @@ class UsuarioServiceTest {
             // listarUsuarios() não retorna null
             assertEquals(listaUsuarios.size(), output.size());
         }
+    }
+
+    @Nested
+    class deletarUsuario{
+        @Test
+        @DisplayName("Deve deletar usuario com sucesso quando o mesmo existe")
+        void deveDeletarUsuarioComSucesso(){
+            var idUsuario = UUID.randomUUID();
+            var usuario = new Usuario(
+                    UUID.randomUUID(),
+                    "usuario_teste",
+                    "email@teste.com",
+                    "senha_hash",
+                    Instant.now(),
+                    null,
+                    true
+            );
+
+            doReturn(Optional.of(usuario))
+                    .when(usuarioRepository).findById(idUsuario);
+            usuarioService.deletarUsuario(idUsuario.toString());
+            verify(usuarioRepository, times(1)).findById(idUsuario);
+            assertFalse(usuario.getActive(), "O campo active deve ser false após a deleção lógica");
+
+            // Verifica se o metodo foi chamado
+            verify(usuarioRepository).findById(idUsuario);
+            assertFalse(usuario.getActive() );
+        }
+
+        @Test
+        @DisplayName("Não deve deletar usuario com sucesso quando o mesmo não existe")
+        void naoDeveDeletarUsuarioQuandoNaoExiste() {
+            var idUsuario = UUID.randomUUID().toString();
+
+            doReturn(Optional.empty())
+                    .when(usuarioRepository).findById(any(UUID.class));
+
+            assertThrows(EntityNotFoundException.class, () -> {
+                usuarioService.deletarUsuario(idUsuario);
+            });
+
+            verify(usuarioRepository, times(1)).findById(UUID.fromString(idUsuario));
+        }
+    }
+
+    @Nested
+    class atualizarUsuario{
+
     }
 }

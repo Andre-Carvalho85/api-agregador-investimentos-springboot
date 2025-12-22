@@ -1,13 +1,10 @@
 package run.example.agregador_investimentos.Controllers;
 
 import jakarta.transaction.Transactional;
-import org.apache.coyote.Request;
-import org.apache.coyote.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import run.example.agregador_investimentos.Entities.RequestUsuario;
-import run.example.agregador_investimentos.Entities.ResponseUsuario;
-import run.example.agregador_investimentos.Entities.Usuario;
+import run.example.agregador_investimentos.Entities.Usuario.RequestUsuario;
+import run.example.agregador_investimentos.Entities.Usuario.ResponseUsuario;
 import run.example.agregador_investimentos.Service.UsuarioService;
 
 import java.net.URI;

@@ -1,12 +1,10 @@
 package run.example.agregador_investimentos.Service;
 
 import jakarta.persistence.EntityNotFoundException;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import run.example.agregador_investimentos.Entities.RequestUsuario;
-import run.example.agregador_investimentos.Entities.ResponseUsuario;
-import run.example.agregador_investimentos.Entities.Usuario;
+import run.example.agregador_investimentos.Entities.Usuario.RequestUsuario;
+import run.example.agregador_investimentos.Entities.Usuario.ResponseUsuario;
+import run.example.agregador_investimentos.Entities.Usuario.Usuario;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
 
 import java.util.List;

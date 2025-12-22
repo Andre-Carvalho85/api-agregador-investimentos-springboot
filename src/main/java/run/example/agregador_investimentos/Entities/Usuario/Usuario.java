@@ -1,4 +1,4 @@
-package run.example.agregador_investimentos.Entities;
+package run.example.agregador_investimentos.Entities.Usuario;
 
 import jakarta.persistence.*;
 import lombok.*;

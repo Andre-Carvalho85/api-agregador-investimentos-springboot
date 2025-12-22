@@ -10,8 +10,8 @@ import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import run.example.agregador_investimentos.Entities.RequestUsuario;
-import run.example.agregador_investimentos.Entities.Usuario;
+import run.example.agregador_investimentos.Entities.Usuario.RequestUsuario;
+import run.example.agregador_investimentos.Entities.Usuario.Usuario;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
 
 import java.time.Instant;

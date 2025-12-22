@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import run.example.agregador_investimentos.Entities.Conta.Conta;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -43,6 +45,9 @@ public class Usuario {
     // Para soft delete
     @Column(name = "fl_status")
     private Boolean active;
+
+    @OneToMany(mappedBy = "user")
+    private List<Conta> contas;
 
     // DTOs -> Entity
     public Usuario(RequestUsuario requestUsuario){

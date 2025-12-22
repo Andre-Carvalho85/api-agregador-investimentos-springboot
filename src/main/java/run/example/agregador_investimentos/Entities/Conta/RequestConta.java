@@ -1,4 +1,4 @@
-package run.example.agregador_investimentos.Entities.Usuario;
+package run.example.agregador_investimentos.Entities.Conta;
 
 public record RequestConta(
     String descricao

@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import run.example.agregador_investimentos.Entities.EnderecoCobranca.EnderecoCobranca;
+import run.example.agregador_investimentos.Entities.Usuario.Usuario;
 
 import java.util.UUID;
 
@@ -19,6 +21,14 @@ public class Conta {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "cd_tabela")
     private UUID idConta;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id") // FK
+    private Usuario usuario;
+
+    @OneToOne(mappedBy = "conta")
+    @PrimaryKeyJoinColumn
+    private EnderecoCobranca enderecoCobranca;
 
     @Column(name = "ds_descricao_conta")
     private String descricao;

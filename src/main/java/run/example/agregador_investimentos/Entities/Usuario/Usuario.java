@@ -46,7 +46,7 @@ public class Usuario {
     @Column(name = "fl_status")
     private Boolean active;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "usuario")
     private List<Conta> contas;
 
     // DTOs -> Entity

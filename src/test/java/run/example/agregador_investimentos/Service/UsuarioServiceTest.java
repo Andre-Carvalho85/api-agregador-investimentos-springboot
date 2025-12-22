@@ -49,15 +49,13 @@ class UsuarioServiceTest {
         @DisplayName("Deve criar um usuário com sucesso")
         void deveCriarUsuarioComSucesso() {
 
-            var usuario = new Usuario(
-                    UUID.randomUUID(),
-                    "usuario_teste",
-                    "email@teste.com",
-                    "senha_hash",
-                    Instant.now(),
-                    null,
-                    true
-            );
+            var usuario = new Usuario();
+            usuario.setIdUsuario(UUID.randomUUID());
+            usuario.setNomeUsuario("usuario_teste");
+            usuario.setEmailUsuario("email@teste.com");
+            usuario.setSenhaUsuario("senha_hash");
+            usuario.setCriacao_entidade(Instant.now());
+            usuario.setActive(true);
 
             // Validacao do repositorio sempre que o metodo .save() é chamado para o molde do captor
             doReturn(usuario).when(usuarioRepository).save(argumentosRequisicaoUsuario.capture());
@@ -99,16 +97,13 @@ class UsuarioServiceTest {
         @Test
         @DisplayName("Quando bem sucedido com optional presente, deve retornar usuário pelo id")
         void deveRetornarUsuarioPorIdComSucessoQuandoTemOptional() {
-            var usuario = new Usuario(
-                    UUID.randomUUID(),
-                    "usuario_teste",
-                    "email@teste.com",
-                    "senha_hash",
-                    Instant.now(),
-                    null,
-                    true
-            );
-
+            var usuario = new Usuario();
+            usuario.setIdUsuario(UUID.randomUUID());
+            usuario.setNomeUsuario("usuario_teste");
+            usuario.setEmailUsuario("email@teste.com");
+            usuario.setSenhaUsuario("senha_hash");
+            usuario.setCriacao_entidade(Instant.now());
+            usuario.setActive(true);
             doReturn(Optional.of(usuario)).when(usuarioRepository).findById(argumentosRequisicaoRetornoEmUuid.capture());
 
             var output = usuarioService.buscarUsuarioPeloId(usuario.getIdUsuario().toString());
@@ -139,15 +134,13 @@ class UsuarioServiceTest {
         @Test
         @DisplayName("Deve retornar todos os usuários com sucesso")
         void deveRetornarTodosOsUsuariosComSucesso() {
-            var usuario = new Usuario(
-                    UUID.randomUUID(),
-                    "usuario_teste",
-                    "email@teste.com",
-                    "senha_hash",
-                    Instant.now(),
-                    null,
-                    true
-            );
+            var usuario = new Usuario();
+            usuario.setIdUsuario(UUID.randomUUID());
+            usuario.setNomeUsuario("usuario_teste");
+            usuario.setEmailUsuario("email@teste.com");
+            usuario.setSenhaUsuario("senha_hash");
+            usuario.setCriacao_entidade(Instant.now());
+            usuario.setActive(true);
 
             var listaUsuarios = List.of(usuario);
 
@@ -170,15 +163,13 @@ class UsuarioServiceTest {
         @DisplayName("Deve deletar usuario com sucesso quando o mesmo existe")
         void deveDeletarUsuarioComSucesso() {
             var idUsuario = UUID.randomUUID();
-            var usuario = new Usuario(
-                    UUID.randomUUID(),
-                    "usuario_teste",
-                    "email@teste.com",
-                    "senha_hash",
-                    Instant.now(),
-                    null,
-                    true
-            );
+            var usuario = new Usuario();
+            usuario.setIdUsuario(UUID.randomUUID());
+            usuario.setNomeUsuario("usuario_teste");
+            usuario.setEmailUsuario("email@teste.com");
+            usuario.setSenhaUsuario("senha_hash");
+            usuario.setCriacao_entidade(Instant.now());
+            usuario.setActive(true);
 
             doReturn(Optional.of(usuario))
                     .when(usuarioRepository).findById(idUsuario);
@@ -213,15 +204,13 @@ class UsuarioServiceTest {
         @DisplayName("Deve atualizar usuario com sucesso se o usuário está presente, bem como seu nome e senha")
         void deveAtualizarUsuarioExistenteQuandoNomeESenhaEstaoPreenchidos(){
             var idUsuario = UUID.randomUUID();
-            var usuario = new Usuario(
-                    UUID.randomUUID(),
-                    "usuario_teste",
-                    "email@teste.com",
-                    "senha_hash",
-                    Instant.now(),
-                    null,
-                    true
-            );
+            var usuario = new Usuario();
+            usuario.setIdUsuario(UUID.randomUUID());
+            usuario.setNomeUsuario("usuario_teste");
+            usuario.setEmailUsuario("email@teste.com");
+            usuario.setSenhaUsuario("senha_hash");
+            usuario.setCriacao_entidade(Instant.now());
+            usuario.setActive(true);
             var atualizacaoUsuarioDto = new RequestUsuario(
                     "Usuario para teste",
                     "testando@gmail.com",

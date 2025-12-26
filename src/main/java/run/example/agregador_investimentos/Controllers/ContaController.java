@@ -53,4 +53,10 @@ public class ContaController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/{idConta}/acoes")
+    public ResponseEntity<List<ResponseInvestimento>> listarAcoesConta(@PathVariable("idConta") String idConta){
+        var acoes = contaService.listarAcoesConta(idConta);
+
+        return ResponseEntity.ok(acoes);
+    }
 }

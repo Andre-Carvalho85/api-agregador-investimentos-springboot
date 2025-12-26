@@ -11,6 +11,7 @@ import run.example.agregador_investimentos.Entities.EnderecoCobranca.EnderecoCob
 import run.example.agregador_investimentos.Entities.Investimento.Investimento;
 import run.example.agregador_investimentos.Entities.Investimento.InvestimentoId;
 import run.example.agregador_investimentos.Entities.Investimento.RequestInvestimento;
+import run.example.agregador_investimentos.Entities.Investimento.ResponseInvestimento;
 import run.example.agregador_investimentos.Repository.*;
 
 import java.util.List;
@@ -80,8 +81,21 @@ public class ContaService {
 
          // DTO -> Entity
         var id = new InvestimentoId(conta.getIdConta(), acao.getAcaoId());
-        var entidade = new Investimento(id, conta, acao, requestInvestimento.quantidade());
+        var entidade = new Investimento(id, conta, acao, requestInvestimento.quantidade(), 0.0);
 
         investimentoRepository.save(entidade);
+    }
+
+    public List<ResponseInvestimento> listarAcoesConta(String idConta) {
+        var conta = contaRepository.findById(UUID.fromString(idConta))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+        return conta.getInvestimentosConta()
+                .stream()
+                .map(as -> new ResponseInvestimento(
+                        as.getAcaoInvestimento().getAcaoId(),
+                        as.getQuantidade(),
+                        0.0
+                ))
+                .toList();
     }
 }

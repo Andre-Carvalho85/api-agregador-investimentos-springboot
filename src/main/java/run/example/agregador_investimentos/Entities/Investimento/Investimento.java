@@ -31,4 +31,7 @@ public class Investimento {
 
     @Column(name = "qtd_acoes")
     private Integer quantidade;
+
+    @Column(name = "qtde_total")
+    private Double total; // Objeto Double aceita valor nulo, enquanto tipo primitivo double, não
 }

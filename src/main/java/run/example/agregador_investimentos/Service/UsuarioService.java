@@ -12,6 +12,7 @@ import run.example.agregador_investimentos.Entities.EnderecoCobranca.EnderecoCob
 import run.example.agregador_investimentos.Entities.Usuario.RequestUsuario;
 import run.example.agregador_investimentos.Entities.Usuario.ResponseUsuario;
 import run.example.agregador_investimentos.Entities.Usuario.Usuario;
+import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
 import run.example.agregador_investimentos.Repository.ContaRepository;
 import run.example.agregador_investimentos.Repository.EnderecoCobrancaRepository;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
@@ -76,7 +77,7 @@ public class UsuarioService {
             }
             usuarioRepository.save(usuario);
         } else {
-            throw new EntityNotFoundException();
+            throw new ExcecaoUsuarioNaoEncontrado(idUsuario);
         }
     }
 
@@ -86,7 +87,7 @@ public class UsuarioService {
             Usuario usuario = optionalUsuario.get();
             usuario.setActive(false);
         } else {
-            throw new EntityNotFoundException("Usuário não encontrado");
+            throw new ExcecaoUsuarioNaoEncontrado(idUsuario);
         }
     }
 }

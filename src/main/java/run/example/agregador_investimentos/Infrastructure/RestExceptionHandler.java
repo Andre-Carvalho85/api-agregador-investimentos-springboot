@@ -7,9 +7,10 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 
 // Tratamento global de exceções da aplicação e gerais do Java
+// (Service chama exceção de domínio e controller advice o converte em HTTP)
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-    // Para erros não mapeados 
+    // Para erros não mapeados
     @ExceptionHandler(Exception.class)
     public MensagemErroRest excecaoGenerica(Exception e){
         MensagemErroRest mensagemErroRest = new MensagemErroRest(HttpStatus.INTERNAL_SERVER_ERROR, "Ocorreu um erro interno no servidor.");

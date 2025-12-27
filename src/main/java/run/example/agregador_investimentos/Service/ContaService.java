@@ -12,6 +12,9 @@ import run.example.agregador_investimentos.Entities.Investimento.Investimento;
 import run.example.agregador_investimentos.Entities.Investimento.InvestimentoId;
 import run.example.agregador_investimentos.Entities.Investimento.RequestInvestimento;
 import run.example.agregador_investimentos.Entities.Investimento.ResponseInvestimento;
+import run.example.agregador_investimentos.Exceptions.ExcecaoAcaoInvestimentoNaoEncontrada;
+import run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada;
+import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
 import run.example.agregador_investimentos.Repository.*;
 
 import java.util.List;
@@ -40,7 +43,7 @@ public class ContaService {
 
     public List<ResponseConta> listarContasPorUsuario(String idUsuario){
         var usuario = usuarioRepository.findById(UUID.fromString(idUsuario))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ExcecaoUsuarioNaoEncontrado(idUsuario));
 
         //Retorna uma lista de DTOs
         return usuario.getContas()
@@ -53,7 +56,7 @@ public class ContaService {
     @Transactional
     public void criarConta(String idUsuario, RequestConta requestConta){
         var usuario = usuarioRepository.findById(UUID.fromString((idUsuario)))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ExcecaoUsuarioNaoEncontrado(idUsuario));
         var conta = new Conta();
         conta.setUsuario(usuario);
         conta.setDescricao(requestConta.descricao());
@@ -74,10 +77,10 @@ public class ContaService {
         // Investimento é a entidade associativa das ações e suas contas, então tem de verificar a existência de ambas antes
 
         var conta = contaRepository.findById(UUID.fromString(idConta))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ExcecaoContaNaoEncontrada(idConta));
 
         var acao = acaoInvestimentoRepository.findById(requestInvestimento.idAcaoInvestimento())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ExcecaoAcaoInvestimentoNaoEncontrada(idConta));
 
          // DTO -> Entity
         var id = new InvestimentoId(conta.getIdConta(), acao.getAcaoId());
@@ -88,7 +91,7 @@ public class ContaService {
 
     public List<ResponseInvestimento> listarAcoesConta(String idConta) {
         var conta = contaRepository.findById(UUID.fromString(idConta))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+                .orElseThrow(() -> new ExcecaoContaNaoEncontrada(idConta));
         return conta.getInvestimentosConta()
                 .stream()
                 .map(as -> new ResponseInvestimento(

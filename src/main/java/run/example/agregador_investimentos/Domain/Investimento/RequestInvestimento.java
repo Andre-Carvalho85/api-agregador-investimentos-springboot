@@ -1,6 +1,4 @@
-package run.example.agregador_investimentos.Entities.Investimento;
-
-import java.util.UUID;
+package run.example.agregador_investimentos.Domain.Investimento;
 
 public record RequestInvestimento(
         String idAcaoInvestimento,

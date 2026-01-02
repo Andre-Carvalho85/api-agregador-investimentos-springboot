@@ -1,6 +1,5 @@
 package run.example.agregador_investimentos.Service;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -10,8 +9,8 @@ import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import run.example.agregador_investimentos.Entities.Usuario.RequestUsuario;
-import run.example.agregador_investimentos.Entities.Usuario.Usuario;
+import run.example.agregador_investimentos.Domain.Usuario.RequestUsuario;
+import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
 

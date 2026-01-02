@@ -1,17 +1,15 @@
 package run.example.agregador_investimentos.Service;
 
 import jakarta.transaction.Transactional;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-import run.example.agregador_investimentos.Entities.Conta.Conta;
-import run.example.agregador_investimentos.Entities.Conta.RequestConta;
-import run.example.agregador_investimentos.Entities.Conta.ResponseConta;
-import run.example.agregador_investimentos.Entities.EnderecoCobranca.EnderecoCobranca;
-import run.example.agregador_investimentos.Entities.Investimento.Investimento;
-import run.example.agregador_investimentos.Entities.Investimento.InvestimentoId;
-import run.example.agregador_investimentos.Entities.Investimento.RequestInvestimento;
-import run.example.agregador_investimentos.Entities.Investimento.ResponseInvestimento;
+import run.example.agregador_investimentos.Domain.Conta.Conta;
+import run.example.agregador_investimentos.Domain.Conta.RequestConta;
+import run.example.agregador_investimentos.Domain.Conta.ResponseConta;
+import run.example.agregador_investimentos.Domain.EnderecoCobranca.EnderecoCobranca;
+import run.example.agregador_investimentos.Domain.Investimento.Investimento;
+import run.example.agregador_investimentos.Domain.Investimento.InvestimentoId;
+import run.example.agregador_investimentos.Domain.Investimento.RequestInvestimento;
+import run.example.agregador_investimentos.Domain.Investimento.ResponseInvestimento;
 import run.example.agregador_investimentos.Exceptions.ExcecaoAcaoInvestimentoNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;

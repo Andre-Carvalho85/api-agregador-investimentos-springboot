@@ -1,4 +1,4 @@
-package run.example.agregador_investimentos.Entities.AcaoInvestimento;
+package run.example.agregador_investimentos.Domain.AcaoInvestimento;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

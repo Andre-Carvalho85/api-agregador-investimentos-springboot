@@ -1,23 +1,14 @@
 package run.example.agregador_investimentos.Service;
 
-import jakarta.persistence.EntityNotFoundException;
-import jakarta.transaction.Transactional;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.server.ResponseStatusException;
-import run.example.agregador_investimentos.Entities.Conta.Conta;
-import run.example.agregador_investimentos.Entities.Conta.RequestConta;
-import run.example.agregador_investimentos.Entities.EnderecoCobranca.EnderecoCobranca;
-import run.example.agregador_investimentos.Entities.Usuario.RequestUsuario;
-import run.example.agregador_investimentos.Entities.Usuario.ResponseUsuario;
-import run.example.agregador_investimentos.Entities.Usuario.Usuario;
+import run.example.agregador_investimentos.Domain.Usuario.RequestUsuario;
+import run.example.agregador_investimentos.Domain.Usuario.ResponseUsuario;
+import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
 import run.example.agregador_investimentos.Repository.ContaRepository;
 import run.example.agregador_investimentos.Repository.EnderecoCobrancaRepository;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

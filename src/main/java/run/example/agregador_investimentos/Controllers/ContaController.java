@@ -1,22 +1,16 @@
 package run.example.agregador_investimentos.Controllers;
 
-import jakarta.transaction.Transactional;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-import run.example.agregador_investimentos.Entities.Conta.Conta;
-import run.example.agregador_investimentos.Entities.Conta.RequestConta;
-import run.example.agregador_investimentos.Entities.Conta.ResponseConta;
-import run.example.agregador_investimentos.Entities.EnderecoCobranca.EnderecoCobranca;
-import run.example.agregador_investimentos.Entities.Investimento.RequestInvestimento;
-import run.example.agregador_investimentos.Entities.Investimento.ResponseInvestimento;
+import run.example.agregador_investimentos.Domain.Conta.RequestConta;
+import run.example.agregador_investimentos.Domain.Conta.ResponseConta;
+import run.example.agregador_investimentos.Domain.Investimento.RequestInvestimento;
+import run.example.agregador_investimentos.Domain.Investimento.ResponseInvestimento;
 import run.example.agregador_investimentos.Service.ContaService;
 import run.example.agregador_investimentos.Service.UsuarioService;
 
 import java.net.URI;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/contas")

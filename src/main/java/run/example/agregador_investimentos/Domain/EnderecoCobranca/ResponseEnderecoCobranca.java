@@ -1,4 +1,4 @@
-package run.example.agregador_investimentos.Entities.EnderecoCobranca;
+package run.example.agregador_investimentos.Domain.EnderecoCobranca;
 
 import java.util.UUID;
 

@@ -1,12 +1,11 @@
-package run.example.agregador_investimentos.Entities.EnderecoCobranca;
+package run.example.agregador_investimentos.Domain.EnderecoCobranca;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.engine.internal.Cascade;
-import run.example.agregador_investimentos.Entities.Conta.Conta;
+import run.example.agregador_investimentos.Domain.Conta.Conta;
 
 import java.util.UUID;
 

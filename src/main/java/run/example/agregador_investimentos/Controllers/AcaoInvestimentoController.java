@@ -5,13 +5,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import run.example.agregador_investimentos.Entities.AcaoInvestimento.RequestAcaoInvestimento;
-import run.example.agregador_investimentos.Entities.AcaoInvestimento.ResponseAcaoInvestimento;
-import run.example.agregador_investimentos.Entities.Usuario.RequestUsuario;
-import run.example.agregador_investimentos.Entities.Usuario.ResponseUsuario;
+import run.example.agregador_investimentos.Domain.AcaoInvestimento.RequestAcaoInvestimento;
+import run.example.agregador_investimentos.Domain.AcaoInvestimento.ResponseAcaoInvestimento;
 import run.example.agregador_investimentos.Service.AcaoInvestimentoService;
-
-import java.net.URI;
 
 @RestController
 @RequestMapping("/v1/acoes")

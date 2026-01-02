@@ -1,4 +1,4 @@
-package run.example.agregador_investimentos.Entities.Usuario;
+package run.example.agregador_investimentos.Domain.Usuario;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,7 +8,7 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import run.example.agregador_investimentos.Entities.Conta.Conta;
+import run.example.agregador_investimentos.Domain.Conta.Conta;
 
 import java.time.Instant;
 import java.util.Collection;

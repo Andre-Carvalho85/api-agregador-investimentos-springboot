@@ -1,3 +1,4 @@
 ALTER TABLE tb_usuario
     ADD COLUMN role VARCHAR(50) NOT NULL DEFAULT 'USER' AFTER ds_senha,
     MODIFY ds_email_usuario VARCHAR(255) NOT NULL UNIQUE;
+

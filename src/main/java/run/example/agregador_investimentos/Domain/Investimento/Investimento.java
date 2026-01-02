@@ -1,12 +1,12 @@
-package run.example.agregador_investimentos.Entities.Investimento;
+package run.example.agregador_investimentos.Domain.Investimento;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import run.example.agregador_investimentos.Entities.AcaoInvestimento.AcaoInvestimento;
-import run.example.agregador_investimentos.Entities.Conta.Conta;
+import run.example.agregador_investimentos.Domain.AcaoInvestimento.AcaoInvestimento;
+import run.example.agregador_investimentos.Domain.Conta.Conta;
 
 import java.math.BigDecimal;
 

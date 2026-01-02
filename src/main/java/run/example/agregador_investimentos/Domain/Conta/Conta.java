@@ -1,13 +1,13 @@
-package run.example.agregador_investimentos.Entities.Conta;
+package run.example.agregador_investimentos.Domain.Conta;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import run.example.agregador_investimentos.Entities.EnderecoCobranca.EnderecoCobranca;
-import run.example.agregador_investimentos.Entities.Investimento.Investimento;
-import run.example.agregador_investimentos.Entities.Usuario.Usuario;
+import run.example.agregador_investimentos.Domain.EnderecoCobranca.EnderecoCobranca;
+import run.example.agregador_investimentos.Domain.Investimento.Investimento;
+import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 
 import java.util.List;
 import java.util.UUID;

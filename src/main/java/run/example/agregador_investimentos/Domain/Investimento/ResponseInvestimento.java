@@ -1,8 +1,6 @@
-package run.example.agregador_investimentos.Entities.Investimento;
+package run.example.agregador_investimentos.Domain.Investimento;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.util.UUID;
 
 public record ResponseInvestimento(
         String idAcaoInvestimento,

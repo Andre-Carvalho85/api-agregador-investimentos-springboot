@@ -1,4 +1,4 @@
-package run.example.agregador_investimentos.Entities.Investimento;
+package run.example.agregador_investimentos.Domain.Investimento;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

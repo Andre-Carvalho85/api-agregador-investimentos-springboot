@@ -63,6 +63,7 @@ public class Usuario implements UserDetails { // Para autenticação
         this.nomeUsuario = requestUsuario.nomeUsuario();
         this.emailUsuario = requestUsuario.emailUsuario();
         this.senhaUsuario = requestUsuario.senhaUsuario();
+        this.role = requestUsuario.roleUsuario();
 
         this.criacao_entidade = Instant.now();
         this.atualizacao_entidade = null;

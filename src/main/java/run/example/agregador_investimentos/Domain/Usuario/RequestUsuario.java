@@ -1,8 +1,11 @@
 package run.example.agregador_investimentos.Domain.Usuario;
 
+import run.example.agregador_investimentos.Security.Enum.RolesUsuario;
+
 public record RequestUsuario(
         String nomeUsuario,
         String emailUsuario,
-        String senhaUsuario
+        String senhaUsuario,
+        RolesUsuario roleUsuario
 ) {
 }

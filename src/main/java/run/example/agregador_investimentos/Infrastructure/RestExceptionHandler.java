@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import run.example.agregador_investimentos.Exceptions.EmailJaCadastradoException;
 import run.example.agregador_investimentos.Exceptions.ExcecaoAcaoInvestimentoNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
@@ -56,6 +57,17 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
                 .body(new MensagemErroRest(
                         HttpStatus.CONFLICT,
                         "Violação de integridade dos dados"
+                ));
+    }
+
+    @ExceptionHandler(EmailJaCadastradoException.class)
+    public ResponseEntity<MensagemErroRest> emailJaCadastrado(
+            EmailJaCadastradoException ex) {
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                .body(new MensagemErroRest(
+                        HttpStatus.BAD_REQUEST,
+                        "E-mail já cadastrado"
                 ));
     }
 

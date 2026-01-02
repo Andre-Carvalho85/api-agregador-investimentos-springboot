@@ -1,11 +1,13 @@
 package run.example.agregador_investimentos.Entities.Investimento;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.UUID;
 
 public record ResponseInvestimento(
         String idAcaoInvestimento,
         Integer quantidade,
-        double total
+        BigDecimal total
 ) {
     public static ResponseInvestimento fromEntity(Investimento investimento) {
         return new ResponseInvestimento(

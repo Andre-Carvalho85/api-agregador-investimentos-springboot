@@ -21,7 +21,7 @@ import java.util.UUID;
 public class Conta {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "cd_tabela")
+    @Column(name = "cd_tabela", columnDefinition = "BINARY(16)")
     private UUID idConta;
 
     @ManyToOne

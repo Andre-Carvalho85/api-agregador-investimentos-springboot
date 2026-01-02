@@ -17,6 +17,7 @@ import run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
 import run.example.agregador_investimentos.Repository.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -84,7 +85,7 @@ public class ContaService {
 
          // DTO -> Entity
         var id = new InvestimentoId(conta.getIdConta(), acao.getAcaoId());
-        var entidade = new Investimento(id, conta, acao, requestInvestimento.quantidade(), 0.0);
+        var entidade = new Investimento(id, conta, acao, requestInvestimento.quantidade(), BigDecimal.valueOf(0.0));
 
         investimentoRepository.save(entidade);
     }
@@ -97,7 +98,7 @@ public class ContaService {
                 .map(as -> new ResponseInvestimento(
                         as.getAcaoInvestimento().getAcaoId(),
                         as.getQuantidade(),
-                        0.0
+                        BigDecimal.valueOf(0.0)
                 ))
                 .toList();
     }

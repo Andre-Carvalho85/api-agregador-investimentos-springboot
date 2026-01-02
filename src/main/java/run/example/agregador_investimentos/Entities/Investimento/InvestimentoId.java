@@ -17,6 +17,6 @@ public class InvestimentoId {
     @Column(name = "cd_conta")
     private UUID idConta;
 
-    @Column(name = "cd_acao_investimento")
+    @Column(name = "cd_ticker")
     private String idAcaoInvestimento;
 }

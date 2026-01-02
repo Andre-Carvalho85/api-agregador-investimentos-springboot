@@ -19,7 +19,7 @@ import java.util.UUID;
 public class EnderecoCobranca {
 
     @Id
-    @Column(name = "cd_tabela")
+    @Column(name = "cd_tabela", columnDefinition = "BINARY(16)")
     private UUID id;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -12,11 +12,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+// Todas as requisições passam por aqui antes de ir para qualquer controller.
 // Para permitir filtros de segurança personalizados (SecurityFilterChain) e liberação de rotas
+
 @Configuration
 @EnableWebSecurity
 public class ConfiguracaoSeguranca {
-    // Cadeia de segurança
+    // Cadeia de segurança com autenticação e autorização
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
         return httpSecurity

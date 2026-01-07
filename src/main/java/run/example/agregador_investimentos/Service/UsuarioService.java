@@ -3,6 +3,7 @@ package run.example.agregador_investimentos.Service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import run.example.agregador_investimentos.Domain.Usuario.RequestUsuario;
 import run.example.agregador_investimentos.Domain.Usuario.ResponseUsuario;
@@ -21,20 +22,23 @@ import java.util.stream.Collectors;
 @Service
 public class UsuarioService {
 
+
     // Injeção de dependência com @Service
     // Quando a classe é instanciada, o contrutor chama a classe que a implementa a interface repositório
     private UsuarioRepository usuarioRepository;
     private EnderecoCobrancaRepository enderecoCobrancaRepository;
     private ContaRepository contaRepository;
+    private PasswordEncoder encoder;
 
     public UsuarioService(UsuarioRepository usuarioRepository,
                            EnderecoCobrancaRepository enderecoCobrancaRepository,
-                           ContaRepository contaRepository){
+                           ContaRepository contaRepository,
+                           PasswordEncoder encoder){
 
         this.usuarioRepository = usuarioRepository;
         this.enderecoCobrancaRepository = enderecoCobrancaRepository;
         this.contaRepository = contaRepository;
-
+        this.encoder = encoder;
     }
 
     public List<ResponseUsuario> listarUsuarios(){
@@ -55,10 +59,8 @@ public class UsuarioService {
     public UUID registrarUsuario(RequestUsuario requestUsuario){
         if(this.usuarioRepository.findByEmailUsuario(requestUsuario.emailUsuario()) == null) {
             // DTO -> Entity e criptografia
-            String senhaCriptografada = new BCryptPasswordEncoder().encode(requestUsuario.senhaUsuario());
-
             Usuario novoUsuario = new Usuario(requestUsuario);
-            novoUsuario.setSenhaUsuario(senhaCriptografada);
+            novoUsuario.setSenhaUsuario(encoder.encode(requestUsuario.senhaUsuario()));
 
             Usuario usuarioSalvo = usuarioRepository.save(novoUsuario);
             return usuarioSalvo.getIdUsuario();
@@ -78,6 +80,9 @@ public class UsuarioService {
                 usuario.setEmailUsuario(requestUsuario.emailUsuario());
                 usuario.setSenhaUsuario(requestUsuario.senhaUsuario());
             }
+            usuario.setSenhaUsuario(
+                    encoder.encode(requestUsuario.senhaUsuario())
+            );
             usuarioRepository.save(usuario);
         } else {
             throw new ExcecaoUsuarioNaoEncontrado(idUsuario);

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,12 +19,18 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    // Utilização de BCrypt encoder
+    // Utilização de BCrypt encoder para fluxo de geração de token JWT
     @PostMapping("/login")
     public ResponseEntity login (@RequestBody @Valid AuthenticationDTO dto){
-        var usuarioSenha = new UsernamePasswordAuthenticationToken(dto.email(), dto.senha());
-        var auth = this.authenticationManager.authenticate(usuarioSenha);
 
-        return ResponseEntity.ok().build();
+        try {
+            var usuarioSenha = new UsernamePasswordAuthenticationToken(dto.email(), dto.senha());
+            var auth = this.authenticationManager.authenticate(usuarioSenha);
+
+            return ResponseEntity.ok(auth);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

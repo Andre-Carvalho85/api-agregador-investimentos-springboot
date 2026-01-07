@@ -77,9 +77,12 @@ public class Usuario implements UserDetails { // Para autenticação
         else return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
+
+     // Retorna a senha criptografada persistida no banco, sendo utilizada pelo PasswordEncoder
+     // para validar as credenciais durante o login.
     @Override
     public @Nullable String getPassword() {
-        return "";
+        return senhaUsuario;
     }
 
     @Override

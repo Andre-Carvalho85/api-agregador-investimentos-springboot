@@ -1,9 +1,11 @@
 package run.example.agregador_investimentos.Security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,6 +20,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class ConfiguracaoSeguranca {
+    @Autowired
+    FiltroSeguranca filtroSeguranca;
+
     // Cadeia de segurança com autenticação e autorização
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
@@ -25,10 +30,13 @@ public class ConfiguracaoSeguranca {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // REST
                 .authorizeHttpRequests(authorize -> authorize
+                        // Filtros antes do token
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/v1/usuarios").permitAll() // Temporariamente apenas para testes enquanto não se configurou autenticação
                         .requestMatchers(HttpMethod.POST, "/v1/acoes").hasRole("ADMIN")
                         .anyRequest().authenticated())
+                // Filtros depois do token
+                .addFilter(filtroSeguranca)
                 .build();
     }
 
@@ -43,4 +51,5 @@ public class ConfiguracaoSeguranca {
     public PasswordEncoder criptografarSenha(){
         return new BCryptPasswordEncoder();
     }
+
 }

@@ -11,6 +11,7 @@ import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 
 @Service
 public class TokenService {
@@ -43,11 +44,12 @@ public class TokenService {
                     .verify(token)
                     .getSubject();
         } catch (JWTVerificationException e) {
-            return "";
+            throw new RuntimeException("Token JWT inválido ou expirado");
         }
     }
 
     private Instant geraDataExpiracao(){
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("03:00"));
+        // Usa o relógio universal (UTC) e adiciona 2 horas
+        return Instant.now().plus(2, ChronoUnit.HOURS);
     }
 }

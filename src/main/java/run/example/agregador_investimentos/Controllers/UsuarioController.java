@@ -22,6 +22,7 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity<List<ResponseUsuario>> listarUsuarios(){
+        System.out.println("CHEGUEI AQUI!!!!!!!!!!!!!!!!!!!!!!!!!!");
         var usuarios = usuarioService.listarUsuarios();
         // HTTP 200 (OK)
         return ResponseEntity.ok(usuarios);

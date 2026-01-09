@@ -13,6 +13,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 // Todas as requisições passam por aqui antes de ir para qualquer controller.
 // Para permitir filtros de segurança personalizados (SecurityFilterChain) e liberação de rotas
@@ -20,6 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class ConfiguracaoSeguranca {
+
     @Autowired
     FiltroSeguranca filtroSeguranca;
 
@@ -36,7 +38,7 @@ public class ConfiguracaoSeguranca {
                         .requestMatchers(HttpMethod.POST, "/v1/acoes").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 // Filtros depois do token
-                .addFilter(filtroSeguranca)
+                .addFilterBefore(filtroSeguranca, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 

@@ -27,23 +27,37 @@ public class FiltroSeguranca extends OncePerRequestFilter {
 
     private String buscarToken(HttpServletRequest request) {
         var authHeader = request.getHeader("Authorization");
-        if(authHeader == null) return null;
+        if(authHeader == null || !authHeader.startsWith("Bearer ")){
+            return null;
+        }
+
         // Retira Bearer para deixar somente o token
-        return authHeader.replace("Bearer", "");
+        return authHeader.replace("Bearer", "").trim();
     }
 
     // Metodo chamado apos autorização na SecurityFilterChain
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         var token = this.buscarToken(request);
-        if(token != null){
-            var login = tokenService.validarToken(token);
-            UserDetails usuario = usuarioRepository.findByEmailUsuario(login);
+        if (token != null) {
+            try{
+                // O token está vindo corretamente, mas está inválido!
+                var login = tokenService.validarToken(token);
+                UserDetails usuario = usuarioRepository.findByEmailUsuario(login);
 
-            // Gera o token e traz autenticacao e autorizacao
-            var autenticacao = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
-            SecurityContextHolder.getContext().setAuthentication(autenticacao);
-        }
+                if (usuario == null) {
+                    filterChain.doFilter(request, response);
+                    return;
+                } else {
+                    System.out.println(usuario.getUsername());
+                    System.out.println(usuario.getPassword());
+                }
+
+                // Gera o token e traz autenticacao e autorizacao
+                var autenticacao = new UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(autenticacao);
+        } catch (Exception e){  }
+    }
         filterChain.doFilter(request, response);
     }
 }

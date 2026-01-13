@@ -2,7 +2,7 @@ package run.example.agregador_investimentos.Service;
 
 import org.springframework.stereotype.Service;
 import run.example.agregador_investimentos.Domain.AcaoInvestimento.AcaoInvestimento;
-import run.example.agregador_investimentos.Domain.AcaoInvestimento.RequestAcaoInvestimento;
+import run.example.agregador_investimentos.Domain.AcaoInvestimento.DTOs.RequestAcaoInvestimento;
 import run.example.agregador_investimentos.Repository.AcaoInvestimentoRepository;
 
 @Service

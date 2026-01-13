@@ -2,10 +2,10 @@ package run.example.agregador_investimentos.Controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import run.example.agregador_investimentos.Domain.Conta.RequestConta;
-import run.example.agregador_investimentos.Domain.Conta.ResponseConta;
-import run.example.agregador_investimentos.Domain.Investimento.RequestInvestimento;
-import run.example.agregador_investimentos.Domain.Investimento.ResponseInvestimento;
+import run.example.agregador_investimentos.Domain.Conta.DTOs.RequestConta;
+import run.example.agregador_investimentos.Domain.Conta.DTOs.ResponseConta;
+import run.example.agregador_investimentos.Domain.Investimento.DTOs.RequestInvestimento;
+import run.example.agregador_investimentos.Domain.Investimento.DTOs.ResponseInvestimento;
 import run.example.agregador_investimentos.Service.ContaService;
 import run.example.agregador_investimentos.Service.UsuarioService;
 

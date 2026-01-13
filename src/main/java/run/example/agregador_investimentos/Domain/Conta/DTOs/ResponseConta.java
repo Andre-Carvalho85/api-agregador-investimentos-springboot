@@ -1,4 +1,6 @@
-package run.example.agregador_investimentos.Domain.Conta;
+package run.example.agregador_investimentos.Domain.Conta.DTOs;
+
+import run.example.agregador_investimentos.Domain.Conta.Conta;
 
 import java.util.UUID;
 

@@ -1,4 +1,6 @@
-package run.example.agregador_investimentos.Domain.AcaoInvestimento;
+package run.example.agregador_investimentos.Domain.AcaoInvestimento.DTOs;
+
+import run.example.agregador_investimentos.Domain.AcaoInvestimento.AcaoInvestimento;
 
 public record ResponseAcaoInvestimento(
         String acaoId,

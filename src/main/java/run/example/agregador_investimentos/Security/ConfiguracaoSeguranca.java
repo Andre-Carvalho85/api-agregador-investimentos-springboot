@@ -34,7 +34,7 @@ public class ConfiguracaoSeguranca {
                 .authorizeHttpRequests(authorize -> authorize
                         // Filtros antes do token
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/v1/usuarios").permitAll() // Temporariamente apenas para testes enquanto não se configurou autenticação
+                        // .requestMatchers(HttpMethod.POST, "/v1/usuarios").permitAll()
                         .requestMatchers(HttpMethod.POST, "/v1/acoes").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 // Filtros depois do token

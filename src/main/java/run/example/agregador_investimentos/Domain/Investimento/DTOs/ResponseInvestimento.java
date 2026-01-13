@@ -1,4 +1,6 @@
-package run.example.agregador_investimentos.Domain.Investimento;
+package run.example.agregador_investimentos.Domain.Investimento.DTOs;
+
+import run.example.agregador_investimentos.Domain.Investimento.Investimento;
 
 import java.math.BigDecimal;
 

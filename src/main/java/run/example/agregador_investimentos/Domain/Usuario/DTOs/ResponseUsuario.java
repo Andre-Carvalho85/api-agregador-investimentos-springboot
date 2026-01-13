@@ -1,4 +1,6 @@
-package run.example.agregador_investimentos.Domain.Usuario;
+package run.example.agregador_investimentos.Domain.Usuario.DTOs;
+
+import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 
 import java.util.UUID;
 

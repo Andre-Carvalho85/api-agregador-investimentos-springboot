@@ -3,13 +3,13 @@ package run.example.agregador_investimentos.Service;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import run.example.agregador_investimentos.Domain.Conta.Conta;
-import run.example.agregador_investimentos.Domain.Conta.RequestConta;
-import run.example.agregador_investimentos.Domain.Conta.ResponseConta;
+import run.example.agregador_investimentos.Domain.Conta.DTOs.RequestConta;
+import run.example.agregador_investimentos.Domain.Conta.DTOs.ResponseConta;
 import run.example.agregador_investimentos.Domain.EnderecoCobranca.EnderecoCobranca;
 import run.example.agregador_investimentos.Domain.Investimento.Investimento;
 import run.example.agregador_investimentos.Domain.Investimento.InvestimentoId;
-import run.example.agregador_investimentos.Domain.Investimento.RequestInvestimento;
-import run.example.agregador_investimentos.Domain.Investimento.ResponseInvestimento;
+import run.example.agregador_investimentos.Domain.Investimento.DTOs.RequestInvestimento;
+import run.example.agregador_investimentos.Domain.Investimento.DTOs.ResponseInvestimento;
 import run.example.agregador_investimentos.Exceptions.ExcecaoAcaoInvestimentoNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
@@ -48,7 +48,7 @@ public class ContaService {
         return usuario.getContas()
                 .stream()
                 .map(ac ->
-                        new ResponseConta(ac.getIdConta(), ac.getDescricao()))
+                 new ResponseConta(ac.getIdConta(), ac.getDescricao()))
                 .toList();
     }
 

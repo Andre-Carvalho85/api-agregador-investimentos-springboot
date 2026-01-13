@@ -3,8 +3,8 @@ package run.example.agregador_investimentos.Controllers;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import run.example.agregador_investimentos.Domain.Usuario.RequestUsuario;
-import run.example.agregador_investimentos.Domain.Usuario.ResponseUsuario;
+import run.example.agregador_investimentos.Domain.Usuario.DTOs.RequestUsuario;
+import run.example.agregador_investimentos.Domain.Usuario.DTOs.ResponseUsuario;
 import run.example.agregador_investimentos.Service.UsuarioService;
 
 import java.net.URI;
@@ -22,7 +22,6 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity<List<ResponseUsuario>> listarUsuarios(){
-        System.out.println("CHEGUEI AQUI!!!!!!!!!!!!!!!!!!!!!!!!!!");
         var usuarios = usuarioService.listarUsuarios();
         // HTTP 200 (OK)
         return ResponseEntity.ok(usuarios);

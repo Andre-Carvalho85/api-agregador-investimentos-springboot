@@ -1,4 +1,6 @@
-package run.example.agregador_investimentos.Domain.EnderecoCobranca;
+package run.example.agregador_investimentos.Domain.EnderecoCobranca.DTOs;
+
+import run.example.agregador_investimentos.Domain.EnderecoCobranca.EnderecoCobranca;
 
 import java.util.UUID;
 

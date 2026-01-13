@@ -1,0 +1,213 @@
+2026-01-13 13:34:15 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 24.0.2 with PID 33772 (C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\target\classes started by André Santos in C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot)
+2026-01-13 13:34:15 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-01-13 13:34:15 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-01-13 13:34:16 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-01-13 13:34:16 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-01-13 13:34:19 INFO  DockerComposeLifecycleManager:128 - There are already Docker Compose services running, skipping startup
+2026-01-13 13:34:19 INFO  DevToolsPropertyDefaultsPostProcessor:69 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-13 13:34:19 INFO  DevToolsPropertyDefaultsPostProcessor:69 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-13 13:34:25 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-13 13:34:25 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 431 ms. Found 5 JPA repository interfaces.
+2026-01-13 13:34:29 INFO  TomcatWebServer:114 - Tomcat initialized with port 8080 (http)
+2026-01-13 13:34:29 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 13:34:29 INFO  StandardService:168 - Starting service [Tomcat]
+2026-01-13 13:34:29 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-01-13 13:34:29 INFO  WebApplicationContextInitializer:77 - Root WebApplicationContext: initialization completed in 9459 ms
+2026-01-13 13:34:29 INFO  LogHelper:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-13 13:34:30 INFO  Version:45 - HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-01-13 13:34:32 INFO  SpringPersistenceUnitInfo:128 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-13 13:34:32 INFO  HikariDataSource:109 - HikariPool-1 - Starting...
+2026-01-13 13:34:33 INFO  HikariPool:580 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@719fc6c7
+2026-01-13 13:34:33 INFO  HikariDataSource:122 - HikariPool-1 - Start completed.
+2026-01-13 13:34:33 INFO  pooling:184 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3307/bancoInvestimentos]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: bancoInvestimentos/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-13 13:34:36 INFO  JtaPlatformInitiator:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-13 13:34:37 INFO  LocalContainerEntityManagerFactoryBean:444 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:34:37 INFO  QueryEnhancerFactories:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-13 13:34:38 DEBUG FiltroSeguranca:236 - Filter 'filtroSeguranca' configured for use
+2026-01-13 13:34:39 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name authorizationService
+2026-01-13 13:34:39 WARN  JpaBaseConfiguration$JpaWebConfiguration:247 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-13 13:34:42 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 13:34:42 INFO  TomcatWebServer:240 - Tomcat started on port 8080 (http) with context path '/'
+2026-01-13 13:34:42 INFO  AgregadorInvestimentosApplication:60 - Started AgregadorInvestimentosApplication in 27.351 seconds (process running for 30.879)
+2026-01-13 13:34:48 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 24.0.2 with PID 32080 (C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\target\classes started by André Santos in C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot)
+2026-01-13 13:34:48 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-01-13 13:34:48 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-01-13 13:34:48 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-01-13 13:34:49 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-01-13 13:34:51 INFO  DockerComposeLifecycleManager:128 - There are already Docker Compose services running, skipping startup
+2026-01-13 13:34:52 INFO  DevToolsPropertyDefaultsPostProcessor:69 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-13 13:34:52 INFO  DevToolsPropertyDefaultsPostProcessor:69 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-13 13:34:55 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-13 13:34:55 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 262 ms. Found 5 JPA repository interfaces.
+2026-01-13 13:34:59 INFO  TomcatWebServer:114 - Tomcat initialized with port 8080 (http)
+2026-01-13 13:34:59 INFO  WebApplicationContextInitializer:77 - Root WebApplicationContext: initialization completed in 7450 ms
+2026-01-13 13:35:00 INFO  LogHelper:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-13 13:35:00 INFO  Version:45 - HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-01-13 13:35:03 INFO  SpringPersistenceUnitInfo:128 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-13 13:35:03 INFO  HikariDataSource:109 - HikariPool-1 - Starting...
+2026-01-13 13:35:04 INFO  [/]:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-13 13:35:04 INFO  DispatcherServlet:523 - Initializing Servlet 'dispatcherServlet'
+2026-01-13 13:35:04 INFO  DispatcherServlet:545 - Completed initialization in 4 ms
+2026-01-13 13:35:05 INFO  HikariPool:580 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66cf8c80
+2026-01-13 13:35:05 INFO  HikariDataSource:122 - HikariPool-1 - Start completed.
+2026-01-13 13:35:06 INFO  pooling:184 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3307/bancoInvestimentos]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: bancoInvestimentos/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-13 13:35:08 DEBUG UsuarioService:50 - Debug log message
+2026-01-13 13:35:12 INFO  JtaPlatformInitiator:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-13 13:35:13 INFO  LocalContainerEntityManagerFactoryBean:444 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:35:13 INFO  QueryEnhancerFactories:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-13 13:35:14 DEBUG FiltroSeguranca:236 - Filter 'filtroSeguranca' configured for use
+2026-01-13 13:35:15 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name authorizationService
+2026-01-13 13:35:16 WARN  JpaBaseConfiguration$JpaWebConfiguration:247 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-13 13:35:20 WARN  AnnotationConfigServletWebServerApplicationContext:628 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-01-13 13:35:20 INFO  LocalContainerEntityManagerFactoryBean:667 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:35:20 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
+2026-01-13 13:35:20 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
+2026-01-13 13:35:38 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 24.0.2 with PID 28276 (C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\target\classes started by André Santos in C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot)
+2026-01-13 13:35:38 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-01-13 13:35:38 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-01-13 13:35:38 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-01-13 13:35:40 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-01-13 13:35:42 INFO  DockerComposeLifecycleManager:128 - There are already Docker Compose services running, skipping startup
+2026-01-13 13:35:42 INFO  DevToolsPropertyDefaultsPostProcessor:69 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-13 13:35:42 INFO  DevToolsPropertyDefaultsPostProcessor:69 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-13 13:35:49 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-13 13:35:49 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 266 ms. Found 5 JPA repository interfaces.
+2026-01-13 13:35:53 INFO  TomcatWebServer:114 - Tomcat initialized with port 8080 (http)
+2026-01-13 13:35:53 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 13:35:53 INFO  StandardService:168 - Starting service [Tomcat]
+2026-01-13 13:35:53 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-01-13 13:35:53 INFO  WebApplicationContextInitializer:77 - Root WebApplicationContext: initialization completed in 10850 ms
+2026-01-13 13:35:54 INFO  LogHelper:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-13 13:35:54 INFO  Version:45 - HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-01-13 13:35:56 INFO  SpringPersistenceUnitInfo:128 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-13 13:35:56 INFO  HikariDataSource:109 - HikariPool-1 - Starting...
+2026-01-13 13:35:57 INFO  HikariPool:580 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c5f264b
+2026-01-13 13:35:57 INFO  HikariDataSource:122 - HikariPool-1 - Start completed.
+2026-01-13 13:35:57 INFO  pooling:184 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3307/bancoInvestimentos]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: bancoInvestimentos/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-13 13:36:04 INFO  JtaPlatformInitiator:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-13 13:36:05 INFO  LocalContainerEntityManagerFactoryBean:444 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:36:06 INFO  QueryEnhancerFactories:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-13 13:36:10 DEBUG FiltroSeguranca:236 - Filter 'filtroSeguranca' configured for use
+2026-01-13 13:36:16 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 24.0.2 with PID 38200 (C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\target\classes started by André Santos in C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot)
+2026-01-13 13:36:16 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-01-13 13:36:16 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-01-13 13:36:16 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\André Santos\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-01-13 13:36:19 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-01-13 13:36:20 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name authorizationService
+2026-01-13 13:36:21 WARN  JpaBaseConfiguration$JpaWebConfiguration:247 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-13 13:36:23 INFO  DockerComposeLifecycleManager:128 - There are already Docker Compose services running, skipping startup
+2026-01-13 13:36:23 INFO  DevToolsPropertyDefaultsPostProcessor:69 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-01-13 13:36:23 INFO  DevToolsPropertyDefaultsPostProcessor:69 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-01-13 13:36:25 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 13:36:25 WARN  AnnotationConfigServletWebServerApplicationContext:628 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-01-13 13:36:25 INFO  LocalContainerEntityManagerFactoryBean:667 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:36:25 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
+2026-01-13 13:36:25 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
+2026-01-13 13:36:25 INFO  ConditionEvaluationReportLogger:82 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-01-13 13:36:25 ERROR LoggingFailureAnalysisReporter:40 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2026-01-13 13:36:31 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-13 13:36:31 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 616 ms. Found 5 JPA repository interfaces.
+2026-01-13 13:36:44 INFO  TomcatWebServer:114 - Tomcat initialized with port 8080 (http)
+2026-01-13 13:36:44 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8080"]
+2026-01-13 13:36:44 INFO  StandardService:168 - Starting service [Tomcat]
+2026-01-13 13:36:44 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-01-13 13:36:44 INFO  WebApplicationContextInitializer:77 - Root WebApplicationContext: initialization completed in 21122 ms
+2026-01-13 13:36:45 INFO  LogHelper:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-13 13:36:46 INFO  Version:45 - HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-01-13 13:36:48 INFO  SpringPersistenceUnitInfo:128 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-13 13:36:49 INFO  HikariDataSource:109 - HikariPool-1 - Starting...
+2026-01-13 13:36:50 INFO  HikariPool:580 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ca9aba7
+2026-01-13 13:36:50 INFO  HikariDataSource:122 - HikariPool-1 - Start completed.
+2026-01-13 13:36:51 INFO  pooling:184 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3307/bancoInvestimentos]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: bancoInvestimentos/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-01-13 13:36:55 INFO  JtaPlatformInitiator:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-13 13:36:55 INFO  LocalContainerEntityManagerFactoryBean:444 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:36:56 INFO  QueryEnhancerFactories:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-13 13:36:56 DEBUG FiltroSeguranca:236 - Filter 'filtroSeguranca' configured for use
+2026-01-13 13:36:57 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name authorizationService
+2026-01-13 13:36:58 WARN  JpaBaseConfiguration$JpaWebConfiguration:247 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-13 13:37:02 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8080"]
+2026-01-13 13:37:02 WARN  AnnotationConfigServletWebServerApplicationContext:628 - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-01-13 13:37:02 INFO  LocalContainerEntityManagerFactoryBean:667 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:37:02 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
+2026-01-13 13:37:02 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
+2026-01-13 13:37:02 INFO  ConditionEvaluationReportLogger:82 - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-01-13 13:37:02 ERROR LoggingFailureAnalysisReporter:40 - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2026-01-13 13:52:17 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-01-13 13:52:17 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-01-13 13:52:17 INFO  LocalContainerEntityManagerFactoryBean:667 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-13 13:52:17 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
+2026-01-13 13:52:17 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.

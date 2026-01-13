@@ -9,7 +9,7 @@ import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import run.example.agregador_investimentos.Domain.Usuario.RequestUsuario;
+import run.example.agregador_investimentos.Domain.Usuario.DTOs.RequestUsuario;
 import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;

@@ -13,6 +13,8 @@ import run.example.agregador_investimentos.Domain.Investimento.DTOs.ResponseInve
 import run.example.agregador_investimentos.Exceptions.ExcecaoAcaoInvestimentoNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada;
 import run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado;
+import run.example.agregador_investimentos.Mappers.ContaMapper;
+import run.example.agregador_investimentos.Mappers.InvestimentoMapper;
 import run.example.agregador_investimentos.Repository.*;
 
 import java.math.BigDecimal;
@@ -26,18 +28,24 @@ public class ContaService {
     private final ContaRepository contaRepository;
     private final AcaoInvestimentoRepository acaoInvestimentoRepository;
     private final InvestimentoRepository investimentoRepository;
+    private final ContaMapper contaMapper;
+    private final InvestimentoMapper investimentoMapper;
 
     public ContaService(UsuarioRepository usuarioRepository,
                         EnderecoCobrancaRepository enderecoCobrancaRepository,
                         ContaRepository contaRepository,
                         AcaoInvestimentoRepository acaoInvestimentoRepository,
-                        InvestimentoRepository investimentoRepository){
+                        InvestimentoRepository investimentoRepository,
+                        ContaMapper contaMapper,
+                        InvestimentoMapper investimentoMapper){
 
         this.usuarioRepository = usuarioRepository;
         this.enderecoCobrancaRepository = enderecoCobrancaRepository;
         this.contaRepository = contaRepository;
         this.acaoInvestimentoRepository = acaoInvestimentoRepository;
         this.investimentoRepository = investimentoRepository;
+        this.contaMapper = contaMapper;
+        this.investimentoMapper = investimentoMapper;
     }
 
     public List<ResponseConta> listarContasPorUsuario(String idUsuario){
@@ -45,11 +53,8 @@ public class ContaService {
                 .orElseThrow(() -> new ExcecaoUsuarioNaoEncontrado(idUsuario));
 
         //Retorna uma lista de DTOs
-        return usuario.getContas()
-                .stream()
-                .map(ac ->
-                 new ResponseConta(ac.getIdConta(), ac.getDescricao()))
-                .toList();
+        return contaMapper.toResponseList(usuario.getContas());
+
     }
 
     @Transactional
@@ -91,13 +96,6 @@ public class ContaService {
     public List<ResponseInvestimento> listarAcoesConta(String idConta) {
         var conta = contaRepository.findById(UUID.fromString(idConta))
                 .orElseThrow(() -> new ExcecaoContaNaoEncontrada(idConta));
-        return conta.getInvestimentosConta()
-                .stream()
-                .map(as -> new ResponseInvestimento(
-                        as.getAcaoInvestimento().getAcaoId(),
-                        as.getQuantidade(),
-                        BigDecimal.valueOf(0.0)
-                ))
-                .toList();
+        return investimentoMapper.toResponseList(conta.getInvestimentosConta());
     }
 }

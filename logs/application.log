@@ -211,3 +211,200 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2026-01-13 13:52:17 INFO  LocalContainerEntityManagerFactoryBean:667 - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-01-13 13:52:17 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
 2026-01-13 13:52:17 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
+2026-02-02 20:14:52 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 23.0.2 with PID 7732 (C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\target\classes started by felip in C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot)
+2026-02-02 20:14:52 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-02-02 20:14:52 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-02-02 20:14:52 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-02-02 20:14:52 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-02-02 20:14:55 INFO  DockerCli:69 -  Network api-agregador-investimentos-springboot_default  Creating
+2026-02-02 20:14:55 INFO  DockerCli:69 -  Network api-agregador-investimentos-springboot_default  Created
+2026-02-02 20:14:55 INFO  DockerCli:69 -  Container api-agregador-investimentos-springboot-mysql-1  Creating
+2026-02-02 20:14:55 INFO  DockerCli:69 -  Container api-agregador-investimentos-springboot-mysql-1  Created
+2026-02-02 20:14:56 INFO  DockerCli:69 -  Container api-agregador-investimentos-springboot-mysql-1  Starting
+2026-02-02 20:14:56 INFO  DockerCli:69 - Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint api-agregador-investimentos-springboot-mysql-1 (95377d891346414539a060b7a9868d8c1e3d23beac0e8fdf73d4caf653117c81): Bind for 0.0.0.0:3307 failed: port is already allocated
+2026-02-02 20:14:56 ERROR SpringApplication:872 - Application run failed
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker compose --file C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\compose.yml --ansi never up --no-color --detach --wait' failed with exit code 1.
+
+Stdout:
+
+
+Stderr:
+ Network api-agregador-investimentos-springboot_default  Creating
+ Network api-agregador-investimentos-springboot_default  Created
+ Container api-agregador-investimentos-springboot-mysql-1  Creating
+ Container api-agregador-investimentos-springboot-mysql-1  Created
+ Container api-agregador-investimentos-springboot-mysql-1  Starting
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint api-agregador-investimentos-springboot-mysql-1 (95377d891346414539a060b7a9868d8c1e3d23beac0e8fdf73d4caf653117c81): Bind for 0.0.0.0:3307 failed: port is already allocated
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:98)
+	at org.springframework.boot.docker.compose.core.DockerCli.run(DockerCli.java:82)
+	at org.springframework.boot.docker.compose.core.DefaultDockerCompose.up(DefaultDockerCompose.java:58)
+	at org.springframework.boot.docker.compose.lifecycle.StartCommand.applyTo(StartCommand.java:51)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:131)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:180)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:173)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:151)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:133)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:137)
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:99)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$0(SpringApplicationRunListeners.java:74)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:123)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:117)
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:74)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:418)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:320)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1374)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at run.example.agregador_investimentos.AgregadorInvestimentosApplication.main(AgregadorInvestimentosApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+2026-02-02 20:18:55 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 23.0.2 with PID 13476 (C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\target\classes started by felip in C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot)
+2026-02-02 20:18:55 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-02-02 20:18:55 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-02-02 20:18:56 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-02-02 20:18:56 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-02-02 20:18:56 ERROR SpringApplication:872 - Application run failed
+org.springframework.boot.docker.compose.core.ProcessExitException: 'docker version --format {{.Client.Version}}' failed with exit code 1.
+
+Stdout:
+28.3.2
+
+
+Stderr:
+error during connect: Get "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.51/version": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:98)
+	at org.springframework.boot.docker.compose.core.ProcessRunner.run(ProcessRunner.java:76)
+	at org.springframework.boot.docker.compose.core.DockerCli$DockerCommands.getDockerCommand(DockerCli.java:147)
+	at org.springframework.boot.docker.compose.core.DockerCli$DockerCommands.<init>(DockerCli.java:141)
+	at org.springframework.boot.docker.compose.core.DockerCli.lambda$new$0(DockerCli.java:67)
+	at java.base/java.util.HashMap.computeIfAbsent(HashMap.java:1229)
+	at org.springframework.boot.docker.compose.core.DockerCli.<init>(DockerCli.java:66)
+	at org.springframework.boot.docker.compose.core.DockerCompose.get(DockerCompose.java:147)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.getDockerCompose(DockerComposeLifecycleManager.java:166)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeLifecycleManager.start(DockerComposeLifecycleManager.java:114)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:53)
+	at org.springframework.boot.docker.compose.lifecycle.DockerComposeListener.onApplicationEvent(DockerComposeListener.java:35)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:180)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:173)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:151)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:133)
+	at org.springframework.boot.context.event.EventPublishingRunListener.multicastInitialEvent(EventPublishingRunListener.java:137)
+	at org.springframework.boot.context.event.EventPublishingRunListener.contextLoaded(EventPublishingRunListener.java:99)
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$contextLoaded$0(SpringApplicationRunListeners.java:74)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:123)
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:117)
+	at org.springframework.boot.SpringApplicationRunListeners.contextLoaded(SpringApplicationRunListeners.java:74)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:418)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:320)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1374)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at run.example.agregador_investimentos.AgregadorInvestimentosApplication.main(AgregadorInvestimentosApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:52)
+2026-02-02 20:21:12 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 23.0.2 with PID 1068 (C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\target\classes started by felip in C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot)
+2026-02-02 20:21:12 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-02-02 20:21:12 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-02-02 20:21:12 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-02-02 20:21:12 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-02-02 20:21:13 INFO  DockerComposeLifecycleManager:128 - There are already Docker Compose services running, skipping startup
+2026-02-02 20:21:13 INFO  DevToolsPropertyDefaultsPostProcessor:69 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-02 20:21:13 INFO  DevToolsPropertyDefaultsPostProcessor:69 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-02 20:21:14 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-02 20:21:15 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 122 ms. Found 5 JPA repository interfaces.
+2026-02-02 20:21:16 INFO  TomcatWebServer:114 - Tomcat initialized with port 8080 (http)
+2026-02-02 20:21:16 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-02 20:21:16 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-02 20:21:16 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-02-02 20:21:16 INFO  WebApplicationContextInitializer:77 - Root WebApplicationContext: initialization completed in 3008 ms
+2026-02-02 20:21:16 INFO  LogHelper:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-02 20:21:16 INFO  Version:45 - HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-02-02 20:21:17 INFO  SpringPersistenceUnitInfo:128 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-02 20:21:17 INFO  HikariDataSource:109 - HikariPool-1 - Starting...
+2026-02-02 20:21:18 INFO  HikariPool:580 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6550c730
+2026-02-02 20:21:18 INFO  HikariDataSource:122 - HikariPool-1 - Start completed.
+2026-02-02 20:21:18 INFO  pooling:184 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3307/bancoInvestimentos]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: bancoInvestimentos/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-02 20:21:19 INFO  JtaPlatformInitiator:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-02 20:21:20 INFO  LocalContainerEntityManagerFactoryBean:444 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02 20:21:20 INFO  QueryEnhancerFactories:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-02 20:21:20 DEBUG FiltroSeguranca:236 - Filter 'filtroSeguranca' configured for use
+2026-02-02 20:21:21 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name authorizationService
+2026-02-02 20:21:21 WARN  JpaBaseConfiguration$JpaWebConfiguration:247 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-02 20:21:22 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-02 20:21:22 INFO  TomcatWebServer:240 - Tomcat started on port 8080 (http) with context path '/'
+2026-02-02 20:21:22 INFO  AgregadorInvestimentosApplication:60 - Started AgregadorInvestimentosApplication in 11.118 seconds (process running for 12.621)
+2026-02-02 20:22:09 INFO  [/]:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-02 20:22:09 INFO  DispatcherServlet:523 - Initializing Servlet 'dispatcherServlet'
+2026-02-02 20:22:09 INFO  DispatcherServlet:545 - Completed initialization in 2 ms
+2026-02-02 20:28:47 INFO  GracefulShutdown:54 - Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-02 20:28:47 INFO  GracefulShutdown:76 - Graceful shutdown complete
+2026-02-02 20:28:47 INFO  LocalContainerEntityManagerFactoryBean:667 - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02 20:28:47 INFO  HikariDataSource:349 - HikariPool-1 - Shutdown initiated...
+2026-02-02 20:28:47 INFO  HikariDataSource:351 - HikariPool-1 - Shutdown completed.
+2026-02-02 20:29:06 INFO  AgregadorInvestimentosApplication:54 - Starting AgregadorInvestimentosApplication using Java 23.0.2 with PID 2304 (C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\target\classes started by felip in C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot)
+2026-02-02 20:29:06 DEBUG AgregadorInvestimentosApplication:55 - Running with Spring Boot v4.0.0, Spring v7.0.1
+2026-02-02 20:29:06 INFO  AgregadorInvestimentosApplication:661 - No active profile set, falling back to 1 default profile: "default"
+2026-02-02 20:29:06 INFO  DockerComposeLifecycleManager:156 - Using Docker Compose file C:\Users\felip\OneDrive\Desktop\api-agregador-investimentos-springboot\compose.yml
+2026-02-02 20:29:06 INFO  Version:18 - HV000001: Hibernate Validator 9.0.1.Final
+2026-02-02 20:29:12 INFO  DockerComposeLifecycleManager:128 - There are already Docker Compose services running, skipping startup
+2026-02-02 20:29:12 INFO  DevToolsPropertyDefaultsPostProcessor:69 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-02-02 20:29:12 INFO  DevToolsPropertyDefaultsPostProcessor:69 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-02-02 20:29:13 INFO  RepositoryConfigurationDelegate:145 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-02 20:29:13 INFO  RepositoryConfigurationDelegate:213 - Finished Spring Data repository scanning in 107 ms. Found 5 JPA repository interfaces.
+2026-02-02 20:29:14 INFO  TomcatWebServer:114 - Tomcat initialized with port 8080 (http)
+2026-02-02 20:29:15 INFO  Http11NioProtocol:168 - Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-02 20:29:15 INFO  StandardService:168 - Starting service [Tomcat]
+2026-02-02 20:29:15 INFO  StandardEngine:168 - Starting Servlet engine: [Apache Tomcat/11.0.14]
+2026-02-02 20:29:15 INFO  WebApplicationContextInitializer:77 - Root WebApplicationContext: initialization completed in 2633 ms
+2026-02-02 20:29:15 INFO  LogHelper:30 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-02-02 20:29:15 INFO  Version:45 - HHH000412: Hibernate ORM core version 7.1.8.Final
+2026-02-02 20:29:16 INFO  SpringPersistenceUnitInfo:128 - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-02 20:29:16 INFO  HikariDataSource:109 - HikariPool-1 - Starting...
+2026-02-02 20:29:16 INFO  HikariPool:580 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47aeeed8
+2026-02-02 20:29:16 INFO  HikariDataSource:122 - HikariPool-1 - Start completed.
+2026-02-02 20:29:17 INFO  pooling:184 - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3307/bancoInvestimentos]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.5
+	Default catalog/schema: bancoInvestimentos/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DatasourceConnectionProviderImpl
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-02 20:29:18 INFO  JtaPlatformInitiator:56 - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-02 20:29:18 INFO  LocalContainerEntityManagerFactoryBean:444 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-02 20:29:18 INFO  QueryEnhancerFactories:48 - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-02 20:29:18 DEBUG FiltroSeguranca:236 - Filter 'filtroSeguranca' configured for use
+2026-02-02 20:29:19 INFO  InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer:110 - Global AuthenticationManager configured with UserDetailsService bean with name authorizationService
+2026-02-02 20:29:19 WARN  JpaBaseConfiguration$JpaWebConfiguration:247 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-02-02 20:29:20 INFO  Http11NioProtocol:168 - Starting ProtocolHandler ["http-nio-8080"]
+2026-02-02 20:29:20 INFO  TomcatWebServer:240 - Tomcat started on port 8080 (http) with context path '/'
+2026-02-02 20:29:20 INFO  AgregadorInvestimentosApplication:60 - Started AgregadorInvestimentosApplication in 15.077 seconds (process running for 16.739)
+2026-02-02 20:34:25 INFO  [/]:168 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-02 20:34:25 INFO  DispatcherServlet:523 - Initializing Servlet 'dispatcherServlet'
+2026-02-02 20:34:25 INFO  DispatcherServlet:545 - Completed initialization in 4 ms
+2026-02-02 20:35:12 WARN  ExceptionHandlerExceptionResolver:248 - Resolved [run.example.agregador_investimentos.Exceptions.ExcecaoUsuarioNaoEncontrado: Usuário não encontrado para o id: c5515689-1046-4202-8f6b-7a9e5867858b]
+2026-02-02 20:35:44 DEBUG UsuarioService:50 - Listagem realizada
+2026-02-02 20:38:02 WARN  ExceptionHandlerExceptionResolver:248 - Resolved [run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada: Conta não encontrada para o id: 81285913-114c-48bc-b7bb-a4f3d9dd231b]
+2026-02-02 20:38:13 WARN  ExceptionHandlerExceptionResolver:248 - Resolved [run.example.agregador_investimentos.Exceptions.ExcecaoContaNaoEncontrada: Conta não encontrada para o id: 93cc7259-4cda-4a53-8b03-abed74d5fabd]
+2026-02-02 23:02:34 WARN  HikariPool:825 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=29m46s70ms576µs900ns).

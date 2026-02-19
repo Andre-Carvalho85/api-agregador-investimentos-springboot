@@ -2,6 +2,7 @@ package run.example.agregador_investimentos.Service;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import run.example.agregador_investimentos.Domain.Usuario.DTOs.RequestUsuario;
@@ -13,8 +14,8 @@ import run.example.agregador_investimentos.Mappers.UsuarioMapper;
 import run.example.agregador_investimentos.Repository.ContaRepository;
 import run.example.agregador_investimentos.Repository.EnderecoCobrancaRepository;
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
-
 import java.util.List;
+import org.springframework.data.domain.Page;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -44,13 +45,9 @@ public class UsuarioService {
         this.usuarioMapper = usuarioMapper;
     }
 
-    public List<ResponseUsuario> listarUsuarios(){
-        List<Usuario> usuarios = usuarioRepository.findAllByActiveTrue();
-        // Stream API para conversão da coleção e Mapper para conversão entre DTO e Entidade
-        logger.debug("Listagem realizada");
-        return usuarios.stream()
-                .map(usuarioMapper::entidadeParaDto)
-                .toList();
+    public Page<ResponseUsuario> listarUsuarios(Pageable pageable){
+        Page<Usuario> paginaUsuarios = usuarioRepository.findAllByActiveTrue(pageable);        // Stream API para conversão da coleção e Mapper para conversão entre DTO e Entidade
+        return paginaUsuarios.map(usuarioMapper::entidadeParaDto);
     }
 
     // Com tipo Optional<T>, retorna DTO de resposta se tiver e Optional.empty() caso não possua

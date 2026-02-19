@@ -1,13 +1,14 @@
 package run.example.agregador_investimentos.Controllers;
 
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import run.example.agregador_investimentos.Domain.Usuario.DTOs.RequestUsuario;
 import run.example.agregador_investimentos.Domain.Usuario.DTOs.ResponseUsuario;
 import run.example.agregador_investimentos.Service.UsuarioService;
-
 import java.net.URI;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @RestController
@@ -21,9 +22,8 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ResponseUsuario>> listarUsuarios(){
-        var usuarios = usuarioService.listarUsuarios();
-        // HTTP 200 (OK)
+    public ResponseEntity<Page<ResponseUsuario>> listarUsuarios(Pageable pageable){
+        Page usuarios = usuarioService.listarUsuarios(pageable);        // HTTP 200 (OK)
         return ResponseEntity.ok(usuarios);
     }
 

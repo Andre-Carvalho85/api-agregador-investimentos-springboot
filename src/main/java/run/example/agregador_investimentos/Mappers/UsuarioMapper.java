@@ -6,14 +6,16 @@ import run.example.agregador_investimentos.Domain.Usuario.DTOs.RequestUsuario;
 import run.example.agregador_investimentos.Domain.Usuario.DTOs.ResponseUsuario;
 import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface UsuarioMapper {
 
-    Usuario dtoParaEntidade(RequestUsuario requestUsuario);
     ResponseUsuario entidadeParaDto(Usuario usuario);
 
-    void atualizarEntidade(
-            RequestUsuario dto,
-            @MappingTarget Usuario usuario
-    );
+    Usuario dtoParaEntidade(RequestUsuario requestUsuario);
+
+    List<ResponseUsuario> entidadeParaDto(List<Usuario> usuarios);
+
+    void atualizarEntidade(RequestUsuario dto, @MappingTarget Usuario usuario);
 }

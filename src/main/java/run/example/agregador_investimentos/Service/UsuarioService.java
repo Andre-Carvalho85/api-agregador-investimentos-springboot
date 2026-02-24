@@ -1,5 +1,6 @@
 package run.example.agregador_investimentos.Service;
 
+import org.apache.coyote.Response;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,8 @@ import run.example.agregador_investimentos.Repository.EnderecoCobrancaRepository
 import run.example.agregador_investimentos.Repository.UsuarioRepository;
 import java.util.List;
 import org.springframework.data.domain.Page;
+import run.example.agregador_investimentos.Security.Enum.RolesUsuario;
+
 import java.util.Optional;
 import java.util.UUID;
 
@@ -54,6 +57,12 @@ public class UsuarioService {
     public Optional<ResponseUsuario> buscarUsuarioPeloId(String idUsuario){
         var usuario = usuarioRepository.findById(UUID.fromString(idUsuario));
         return usuario.map(usuarioMapper::entidadeParaDto);
+    }
+
+    // Chamando novo metodo com filtro
+    public Page<ResponseUsuario> findByRole(RolesUsuario rolesUsuario, Pageable pageable){
+        Page<Usuario> paginaUsuarios = usuarioRepository.findByRole(rolesUsuario, pageable);
+        return paginaUsuarios.map(usuarioMapper::entidadeParaDto);
     }
 
     // Retornar somente Id, em vez da DTO. Tampouco, a classe inteira

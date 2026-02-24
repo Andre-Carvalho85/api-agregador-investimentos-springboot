@@ -7,6 +7,8 @@ import org.springframework.stereotype.Repository;
 import run.example.agregador_investimentos.Domain.Usuario.Usuario;
 
 import org.springframework.data.domain.Pageable;
+import run.example.agregador_investimentos.Security.Enum.RolesUsuario;
+
 import java.util.List;
 import java.util.UUID;
 
@@ -15,4 +17,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, UUID> {
     // Padrão JPA que abstrai as queries (select pelos ativos e autorização)
     Page<Usuario> findAllByActiveTrue(Pageable pageable);
     UserDetails findByEmailUsuario(String email);
- }
+
+    // Novo metodo para filtro
+    Page<Usuario> findByRole(RolesUsuario rolesUsuario, Pageable pageable);
+}
